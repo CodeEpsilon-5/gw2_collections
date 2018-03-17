@@ -5,6 +5,22 @@
     <title>Title</title>
 </head>
 <body>
-<p>Template loaded successfully.</p>
+    <p>Template loaded successfully.</p>
+
+    {% if builds %}
+        <ul>
+        {% for build in builds %}
+            <p>{{ build.id }}. {{ build.build_name }}</p>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No build available.</p>
+    {% endif %}
+
+
 </body>
+<footer>
+    Made By Lucas Daniel - {{ now.year }}
+</footer>
+
 </html>

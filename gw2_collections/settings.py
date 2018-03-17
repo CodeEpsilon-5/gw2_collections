@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     "vote",
     "djrichtextfield",
     "tinymce",
-    "builds",
+    "builds.apps.BuildsConfig",
 ]
 
 MIDDLEWARE = [

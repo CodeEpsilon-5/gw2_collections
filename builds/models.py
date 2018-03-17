@@ -3,7 +3,7 @@ from vote.models import VoteModel
 from djrichtextfield.models import RichTextField
 
 
-class Specializations(VoteModel, models.Model):
+class Build(VoteModel, models.Model):
 
     build_name = models.CharField("Build Name", max_length=50)
 
@@ -16,5 +16,8 @@ class Specializations(VoteModel, models.Model):
 
     gw2skills_link = models.URLField("Link to build on gw2skills.net")
 
-    traits = models.CharField("Traits, Deltaconnected-style decoded(Base64)", max_length=27)
-    skills = models.CharField("Skills, Deltaconnected-style decoded(Base64)", max_length=23)
+    traits = models.CharField("Traits, Deltaconnected-style decoded(Base64)", max_length=27, null=True)
+    skills = models.CharField("Skills, Deltaconnected-style decoded(Base64)", max_length=23, null=True)
+
+    def __str__(self):
+        return self.build_name
