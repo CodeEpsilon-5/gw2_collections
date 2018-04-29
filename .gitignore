@@ -122,3 +122,4 @@ static/admin/js/vendor/select2/i18n/zh-TW.js
 static/admin/js/vendor/xregexp/
 static/django_tinymce/
 static/tiny_mce/
+builds/migrations/

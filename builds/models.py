@@ -1,6 +1,6 @@
 from django.db import models
 from vote.models import VoteModel
-from djrichtextfield.models import RichTextField
+from markupfield.fields import MarkupField
 
 
 class Build(VoteModel, models.Model):
@@ -11,9 +11,9 @@ class Build(VoteModel, models.Model):
 
     build_description = models.TextField("Build Description", max_length=200)
 
-    build_usage = RichTextField()
+    build_usage = MarkupField(markup_type='markdown')
 
-    build_upload_date = models.DateField("Build upload date", auto_now_add=True)
+    build_upload_date = models.DateField("build upload date", auto_now_add=True)
     build_last_edit_date = models.DateField("Build's last edit date", auto_now=True)
 
     gw2skills_link = models.URLField("Link to build on gw2skills.net", null=True)
