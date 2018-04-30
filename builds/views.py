@@ -17,6 +17,6 @@ def index(request):
 
 
 def view_build(request, pk):
-    build = Build.objects.get(pk=1)
+    build = Build.objects.get(pk=pk)
     context = {"build": build}
     return render(request, 'builds/build.html', context)

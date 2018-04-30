@@ -1,26 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <p>Template loaded successfully.</p>
+{% extends 'builds/base.html' %}
 
+{% block page_title %} List of builds {% endblock %}
+
+{% block content %}
     {% if builds %}
         <ul>
         {% for build in builds %}
-            <p>{{ build.id }}. {{ build.build_name }}</p>
+            <a href="{% url 'build' build.id %}">{{ build.id }}. {{ build.build_name }}</a>
         {% endfor %}
         </ul>
     {% else %}
         <p>No build available.</p>
     {% endif %}
 
-
-</body>
-<footer>
-    Made By Lucas Daniel - {{ now.year }}
-</footer>
-
-</html>
+{% endblock %}

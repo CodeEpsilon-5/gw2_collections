@@ -1,16 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Build: {{ build.build_name }}</title>
-</head>
-<body>
-        <h1>{{ build.build_name }}</h1>
-        <p class="section-subtitle">By {{ build.author.first_name }}</p>
+{% extends 'builds/base.html' %}
 
-        <h3>Description</h3>
+    {% block page_title %}{{ build.build_name }} by {{ build.author }}{% endblock %}
+
+    {% block content %}
+        <div class="container">
+        <h1>{{ build.build_name }}</h1>
+        <p class="section-subtitle">By {{ build.author }}</p>
+
+        <h3>Description:</h3>
         <p>{{ build.build_description }}</p>
 
+        <h2>Build Details:</h2>
+        <h3>Utilities:</h3>
+        <div data-armory-embed="skills" data-armory-ids="{{ build.heal }},{{ build.uti1 }},{{ build.uti2 }},{{ build.uti3 }},{{ build.elite }}"></div>
+        <h3>Specializations:</h3>
+        <div
+                data-armory-embed="specializations"
+                data-armory-ids="{{ build.t1id }},{{ build.t2id }},{{ build.t3id }}"
+                data-armory-{{ build.t1id }}-traits="{{ build.t1t1 }},{{ build.t1t2 }},{{ build.t1t3 }}"
+                data-armory-{{ build.t2id }}-traits="{{ build.t2t1 }},{{ build.t2t2 }},{{ build.t2t3 }}"
+                data-armory-{{ build.t3id }}-traits="{{ build.t3t1 }},{{ build.t3t2 }},{{ build.t3t3 }}"></div>
 
-</body>
-</html>
+        <h3>Build Usage:</h3>
+        <div>
+            {{ build.build_usage.rendered|default:"<missing usage>"|safe }}
+        </div>
+        <script async src="https://unpkg.com/armory-embeds@^0.x.x/armory-embeds.js"></script>
+        </div>
+    {% endblock %}
