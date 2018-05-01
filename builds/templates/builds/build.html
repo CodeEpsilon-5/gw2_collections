@@ -23,7 +23,7 @@
 
         <h3>Build Usage:</h3>
         <div>
-            {{ build.build_usage.rendered|default:"<missing usage>"|safe }}
+            {{ build.build_usage | safe }}
         </div>
         <script async src="https://unpkg.com/armory-embeds@^0.x.x/armory-embeds.js"></script>
         </div>

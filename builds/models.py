@@ -1,6 +1,6 @@
 from django.db import models
 from vote.models import VoteModel
-from markupfield.fields import MarkupField
+from markdownx.models import MarkdownxField
 
 
 class Build(VoteModel, models.Model):
@@ -35,7 +35,7 @@ class Build(VoteModel, models.Model):
 
     build_description = models.TextField("Build Description", max_length=200)
 
-    build_usage = MarkupField(markup_type='markdown')
+    build_usage = MarkdownxField()
 
     build_upload_date = models.DateField("build upload date", auto_now_add=True)
     build_last_edit_date = models.DateField("Build's last edit date", auto_now=True)

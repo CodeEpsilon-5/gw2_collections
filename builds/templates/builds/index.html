@@ -3,6 +3,7 @@
 {% block page_title %} List of builds {% endblock %}
 
 {% block content %}
+    <h1>Builds:</h1>
     {% if builds %}
         <ul>
         {% for build in builds %}
@@ -12,5 +13,6 @@
     {% else %}
         <p>No build available.</p>
     {% endif %}
+    <h5><a href="{% url 'build_new' %}">Create new build</a></h5>
 
 {% endblock %}

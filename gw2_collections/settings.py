@@ -37,11 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.forms',
     "vote",
-    "djrichtextfield",
-    "tinymce",
+    #"djrichtextfield",
+    #"tinymce",
     "builds.apps.BuildsConfig",
+    "markdownx",
 ]
+
+FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -58,7 +62,13 @@ ROOT_URLCONF = 'gw2_collections.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            # str(BASE_DIR.path('templates/markdownx')),
+            # str(BASE_DIR.path('templates')),
+            os.path.join(BASE_DIR, 'templates/markdownx'),
+            os.path.join(BASE_DIR, 'templates'),
+        ],
+
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -66,6 +76,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
             ],
         },
     },
