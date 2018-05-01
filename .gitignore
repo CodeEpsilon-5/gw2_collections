@@ -124,3 +124,5 @@ static/django_tinymce/
 static/tiny_mce/
 builds/migrations/
 migrations/
+
+secretkey.txt
